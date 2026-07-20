@@ -6,14 +6,22 @@
     <title>AlloyForge Fasteners | High-Temperature Alloy Fasteners</title>
     <meta
       name="description"
-      content="High-temperature alloy screws, bolts, nuts, studs and custom fasteners for overseas industrial buyers. Nickel alloy, titanium and corrosion-resistant materials."
+      content="High-temperature alloy bolts, studs, nuts, washers and custom components for heat, pressure and corrosion-critical industrial applications."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="assets/vendor/gsap.min.js" defer></script>
+    <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="page-home">
     <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="AlloyForge Fasteners home">
+      <a class="brand" href="index.html" aria-label="AlloyForge Fasteners home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" role="img">
             <path d="M7.2 3.8 3.8 7.2v9.6l3.4 3.4h9.6l3.4-3.4V7.2l-3.4-3.4H7.2Zm.8 3h8l1.2 1.2v8l-1.2 1.2H8L6.8 16V8L8 6.8Zm1.8 3.4v3.6h4.4v-3.6H9.8Z" />
@@ -30,16 +38,16 @@
         <span></span>
       </button>
 
-      <nav class="site-nav" data-nav>
+      <nav class="site-nav" data-nav aria-label="Primary navigation">
         <a href="#products">Products</a>
         <a href="#materials">Materials</a>
+        <a href="#capabilities">Capabilities</a>
         <a href="#quality">Quality</a>
-        <a href="#industries">Industries</a>
-        <a class="nav-cta" href="#rfq">Request Quote</a>
+        <a class="nav-cta" href="quote.html">Request a Quote</a>
       </nav>
     </header>
 
-    <main id="home">
+    <main class="site-main" id="home">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-media" aria-hidden="true">
           <img class="hero-poster" src="assets/images/fastener-hero-poster.jpg" alt="" />
@@ -47,81 +55,79 @@
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container hero-content">
-          <p class="eyebrow">ENGINEERED FOR EXTREMES</p>
-          <h1 id="hero-title">
-            <span>High-Temperature</span>
-            <span>Alloy Fasteners</span>
-          </h1>
+          <p class="eyebrow">HIGH-TEMPERATURE ALLOY FASTENERS</p>
+          <h1 id="hero-title">Alloy Fasteners for Heat, Pressure &amp; Corrosion.</h1>
           <p class="hero-copy">
-            Precision fasteners engineered for heat, corrosion and critical industrial applications.
+            Bolts, studs, nuts, washers and custom components in nickel-based and high-performance alloys.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#products">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 5h14v4H5V5Zm0 5.5h6.2V19H5v-8.5Zm7.8 0H19V19h-6.2v-8.5ZM6.6 6.6v.8h10.8v-.8H6.6Zm0 5.5v5.3h3v-5.3h-3Zm7.8 0v5.3h3v-5.3h-3Z" />
-              </svg>
-              Explore Fasteners
-            </a>
-            <a class="button secondary" href="#rfq">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h16v16H4V4Zm2 2v12h12V6H6Zm2.3 3.1 1.1-1.1 2.6 2.6 2.6-2.6 1.1 1.1-3.7 3.7-3.7-3.7Zm0 4.8h7.4v1.6H8.3v-1.6Z" />
-              </svg>
+            <a class="button primary" href="quote.html">
               Request a Quote
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.2 5.2 20 12l-6.8 6.8-1.2-1.2 4.8-4.8H4v-1.6h12.8L12 6.4l1.2-1.2Z" />
+              </svg>
             </a>
+            <a class="button secondary" href="#products">Explore Products</a>
           </div>
-          <dl class="hero-metrics" aria-label="Supplier capabilities">
-            <div>
-              <dt>Material</dt>
-              <dd>Nickel Alloy</dd>
-            </div>
-            <div>
-              <dt>Order Type</dt>
-              <dd>Drawing Custom</dd>
-            </div>
-            <div>
-              <dt>Documents</dt>
-              <dd>MTC & Inspection</dd>
-            </div>
-          </dl>
         </div>
-        <a class="scroll-cue" href="#products" aria-label="Scroll to product range">
+        <a class="scroll-cue" href="#trust" aria-label="Scroll to supplier capabilities">
           <span>Scroll</span>
           <i aria-hidden="true"></i>
         </a>
       </section>
 
-      <section class="trust-band" aria-label="Fastener standards and services">
-        <div class="container trust-grid">
-          <span>DIN</span>
-          <span>ISO</span>
-          <span>ASTM</span>
-          <span>ASME</span>
-          <span>Custom Drawings</span>
-          <span>Export Packing</span>
+      <section class="trust-marquee" id="trust" aria-label="Procurement commitments">
+        <div class="marquee-track" data-marquee>
+          <div class="marquee-group">
+            <span><i aria-hidden="true"></i>Custom sizes from drawings</span>
+            <span><i aria-hidden="true"></i>Material and heat traceability</span>
+            <span><i aria-hidden="true"></i>Testing quoted on request</span>
+            <span><i aria-hidden="true"></i>DIN · ISO · ASTM · ASME</span>
+            <span><i aria-hidden="true"></i>Response within one business day</span>
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <span><i></i>Custom sizes from drawings</span>
+            <span><i></i>Material and heat traceability</span>
+            <span><i></i>Testing quoted on request</span>
+            <span><i></i>DIN · ISO · ASTM · ASME</span>
+            <span><i></i>Response within one business day</span>
+          </div>
         </div>
       </section>
 
-      <section class="section intro-section">
-        <div class="container intro-grid">
-          <div>
-            <p class="eyebrow dark">Procurement-focused fastener supply</p>
-            <h2>Clear specs, stable quality and fast RFQ handling for overseas buyers.</h2>
+      <section class="section intro-section" aria-labelledby="company-title">
+        <div class="container company-grid">
+          <div class="company-copy" data-reveal>
+            <p class="eyebrow dark">Procurement-focused alloy supply</p>
+            <h2 id="company-title">A clear route from technical requirement to export-ready fasteners.</h2>
+            <p>
+              AlloyForge supports international buyers sourcing standard and custom fasteners for high-temperature and
+              corrosive service. Quotations are built around the material grade, drawing, standard, thread, quantity,
+              testing and delivery destination.
+            </p>
+            <ul class="plain-list">
+              <li>Standard parts and drawing-based custom components</li>
+              <li>Nickel alloy and high-performance material sourcing</li>
+              <li>Coordinated processing, inspection and export documentation</li>
+            </ul>
           </div>
-          <p>
-            AlloyForge presents the production capability international sourcing teams expect to see: material grades, product standards,
-            inspection workflow, application fit and a quote process built around drawings, sizes and quantities.
-          </p>
+          <figure class="company-photo media-frame" data-scale-media>
+            <img
+              src="assets/hero-fasteners.png"
+              alt="High-temperature alloy bolts, studs, nuts and washers on a metal work surface"
+            />
+          </figure>
         </div>
       </section>
 
       <section class="section products-section" id="products" aria-labelledby="products-title">
         <div class="container">
-          <div class="section-heading split">
+          <div class="section-heading split" data-reveal>
             <div>
               <p class="eyebrow dark">Product range</p>
-              <h2 id="products-title">Precision fasteners for heat, corrosion and load-critical assemblies.</h2>
+              <h2 id="products-title">Five core fastener categories, supplied to specification.</h2>
             </div>
-            <a class="text-link" href="#rfq">
+            <a class="text-link" href="quote.html">
               Send specifications
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13.2 5.2 20 12l-6.8 6.8-1.2-1.2 4.8-4.8H4v-1.6h12.8L12 6.4l1.2-1.2Z" />
@@ -130,38 +136,50 @@
           </div>
 
           <div class="product-layout">
-            <figure class="product-photo">
-              <img src="assets/product-fasteners.png" alt="Catalog range of alloy screws, bolts, nuts, studs and washers" />
+            <figure class="product-photo media-frame" data-scale-media>
+              <img src="assets/product-fasteners.png" alt="Alloy bolts, studs, nuts and washers arranged for inspection" />
             </figure>
             <div class="product-cards" aria-label="Product categories">
-              <article class="product-card">
-                <span class="card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M5 10h9.5a4.5 4.5 0 1 1 0 9H5v-2h9.5a2.5 2.5 0 1 0 0-5H5v-2Zm0-5h13v2H5V5Z" /></svg>
-                </span>
-                <h3>Socket & Hex Screws</h3>
-                <p>Cap screws, machine screws and special heads for high-temperature assemblies.</p>
-              </article>
-              <article class="product-card">
-                <span class="card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M7 4h10l3 3v10l-3 3H7l-3-3V7l3-3Zm.8 2L6 7.8v8.4L7.8 18h8.4l1.8-1.8V7.8L16.2 6H7.8Zm1.2 5h6v2H9v-2Z" /></svg>
-                </span>
-                <h3>Bolts & Studs</h3>
-                <p>Hex bolts, full-thread studs, double-end studs and drawing-based specials.</p>
-              </article>
-              <article class="product-card">
-                <span class="card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 3 3 8v8l9 5 9-5V8l-9-5Zm0 2.3L18.5 9 12 12.7 5.5 9 12 5.3ZM5 10.7l6 3.4v4.3l-6-3.3v-4.4Zm8 7.7v-4.3l6-3.4v4.4l-6 3.3Z" /></svg>
-                </span>
-                <h3>Nuts & Washers</h3>
-                <p>Hex nuts, lock nuts, flat washers and special washers matched to alloy grades.</p>
-              </article>
-              <article class="product-card">
-                <span class="card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4Zm2 2v3h3V6H6Zm7-2h7v7h-7V4Zm2 2v3h3V6h-3ZM4 13h7v7H4v-7Zm2 2v3h3v-3H6Zm7-2h7v7h-7v-7Zm2 2v3h3v-3h-3Z" /></svg>
-                </span>
-                <h3>Custom Fasteners</h3>
-                <p>Non-standard dimensions, special thread forms and small-batch trial orders.</p>
-              </article>
+              <a class="product-card" href="quote.html?product=Bolts" data-reveal>
+                <span class="product-type">Hex · Socket · Special head</span>
+                <div>
+                  <h3>Bolts</h3>
+                  <p>Hex, socket and special-head bolts for high-temperature assemblies.</p>
+                  <span class="card-link">Quote bolts <b aria-hidden="true">&rarr;</b></span>
+                </div>
+              </a>
+              <a class="product-card" href="quote.html?product=Stud%20Bolts" data-reveal>
+                <span class="product-type">Full thread · Double end</span>
+                <div>
+                  <h3>Stud Bolts</h3>
+                  <p>Full-thread, double-end and application-specific stud configurations.</p>
+                  <span class="card-link">Quote stud bolts <b aria-hidden="true">&rarr;</b></span>
+                </div>
+              </a>
+              <a class="product-card" href="quote.html?product=Nuts" data-reveal>
+                <span class="product-type">Hex · Heavy hex · Special</span>
+                <div>
+                  <h3>Nuts</h3>
+                  <p>Hex, heavy hex and special nuts matched to alloy and thread requirements.</p>
+                  <span class="card-link">Quote nuts <b aria-hidden="true">&rarr;</b></span>
+                </div>
+              </a>
+              <a class="product-card" href="quote.html?product=Washers" data-reveal>
+                <span class="product-type">Flat · Custom profile</span>
+                <div>
+                  <h3>Washers</h3>
+                  <p>Flat and custom-profile washers for load distribution and corrosion resistance.</p>
+                  <span class="card-link">Quote washers <b aria-hidden="true">&rarr;</b></span>
+                </div>
+              </a>
+              <a class="product-card product-card-wide" href="quote.html?product=Custom%20Components" data-reveal>
+                <span class="product-type">Drawing-based · Non-standard</span>
+                <div>
+                  <h3>Custom Components</h3>
+                  <p>Non-standard geometry, special threads and low-volume trial requirements based on your drawing.</p>
+                  <span class="card-link">Upload a drawing <b aria-hidden="true">&rarr;</b></span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -169,41 +187,127 @@
 
       <section class="section materials-section" id="materials" aria-labelledby="materials-title">
         <div class="container">
-          <div class="section-heading centered">
-            <p class="eyebrow dark">Material capability</p>
-            <h2 id="materials-title">Built around alloy grades overseas engineers already specify.</h2>
+          <div class="section-heading split" data-reveal>
+            <div>
+              <p class="eyebrow dark">Material capability</p>
+              <h2 id="materials-title">Alloys selected for severe service conditions.</h2>
+            </div>
+            <p class="heading-note">
+              Final material selection, certification and test scope are confirmed against each purchase specification.
+            </p>
           </div>
 
-          <div class="materials-grid">
-            <article>
-              <h3>Inconel 718</h3>
-              <p>High strength nickel alloy for heat, oxidation and demanding mechanical loads.</p>
-              <span>Bolts / Studs / Screws</span>
+          <div class="material-carousel" data-material-carousel data-reveal>
+            <div class="material-viewport">
+              <article class="material-slide is-active" data-material-slide aria-hidden="false">
+                <div class="material-copy">
+                  <span class="material-family">Ni-Cr-Mo alloy</span>
+                  <h3>Inconel 625</h3>
+                  <p>Strong resistance to seawater, chloride environments and elevated-temperature oxidation.</p>
+                  <dl>
+                    <div><dt>Relevant service</dt><dd>Marine · Chemical · Offshore</dd></div>
+                    <div><dt>Supply review</dt><dd>Fastener form, standard and certification</dd></div>
+                  </dl>
+                </div>
+                <figure class="material-image">
+                  <img src="assets/hero-fasteners.png" alt="Nickel alloy fasteners on a machined metal surface" />
+                </figure>
+              </article>
+              <article class="material-slide" data-material-slide aria-hidden="true">
+                <div class="material-copy">
+                  <span class="material-family">Ni-Cr-Fe alloy</span>
+                  <h3>Inconel 718</h3>
+                  <p>High strength and creep resistance for loaded assemblies at elevated temperatures.</p>
+                  <dl>
+                    <div><dt>Relevant service</dt><dd>Power · Energy · Turbomachinery</dd></div>
+                    <div><dt>Supply review</dt><dd>Strength condition, thread and test scope</dd></div>
+                  </dl>
+                </div>
+                <figure class="material-image">
+                  <img src="assets/product-fasteners.png" alt="Assorted alloy bolts, studs, nuts and washers" />
+                </figure>
+              </article>
+              <article class="material-slide" data-material-slide aria-hidden="true">
+                <div class="material-copy">
+                  <span class="material-family">Ni-Mo-Cr alloy</span>
+                  <h3>Hastelloy C276</h3>
+                  <p>Broad corrosion resistance for aggressive chemical processing environments.</p>
+                  <dl>
+                    <div><dt>Relevant service</dt><dd>Chemical · Process Equipment</dd></div>
+                    <div><dt>Supply review</dt><dd>Media exposure, drawing and inspection</dd></div>
+                  </dl>
+                </div>
+                <figure class="material-image">
+                  <img src="assets/quality-inspection.png" alt="Alloy fastener inspection in a quality laboratory" />
+                </figure>
+              </article>
+              <article class="material-slide" data-material-slide aria-hidden="true">
+                <div class="material-copy">
+                  <span class="material-family">Order-specific grades</span>
+                  <h3>Other Performance Alloys</h3>
+                  <p>Monel, titanium, duplex and additional grades reviewed against the operating requirement.</p>
+                  <dl>
+                    <div><dt>Relevant service</dt><dd>Marine · Chemical · Weight-critical</dd></div>
+                    <div><dt>Supply review</dt><dd>Specified per drawing or material standard</dd></div>
+                  </dl>
+                </div>
+                <figure class="material-image">
+                  <img src="assets/hero-fasteners.png" alt="Special alloy fasteners prepared for industrial supply" />
+                </figure>
+              </article>
+            </div>
+            <div class="material-controls">
+              <p><span data-material-current>01</span> / 04</p>
+              <div>
+                <button type="button" data-material-prev aria-label="Previous material">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.8 5.2 4 12l6.8 6.8 1.2-1.2-4.8-4.8H20v-1.6H7.2L12 6.4l-1.2-1.2Z" /></svg>
+                </button>
+                <button type="button" data-material-next aria-label="Next material">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 5.2 20 12l-6.8 6.8-1.2-1.2 4.8-4.8H4v-1.6h12.8L12 6.4l1.2-1.2Z" /></svg>
+                </button>
+              </div>
+            </div>
+            <div class="material-progress" aria-hidden="true"><i data-material-progress></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section capability-section" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="container capability-grid">
+          <div class="capability-copy" data-capability-copy>
+            <p class="eyebrow">Custom and supply capability</p>
+            <h2 id="capabilities-title">Quote against the drawing, standard, thread and quantity you actually need.</h2>
+            <p>
+              Manufacturing and secondary processing can be coordinated through qualified supply partners. The proposed
+              route, inspection scope and documentation are confirmed with the quotation.
+            </p>
+            <a class="button light" href="quote.html">Upload your requirement</a>
+          </div>
+          <div class="capability-list" aria-label="Available supply processes">
+            <article data-capability-item>
+              <small>Before quotation</small>
+              <strong>Technical drawing review</strong>
+              <p>Dimensions, tolerances, thread form, material condition and order quantity.</p>
             </article>
-            <article>
-              <h3>Inconel 625</h3>
-              <p>Corrosion-resistant nickel alloy for marine, chemical and high-temperature service.</p>
-              <span>Nuts / Washers / Specials</span>
+            <article data-capability-item>
+              <small>Primary processing</small>
+              <strong>Machining and thread production</strong>
+              <p>Turning, thread rolling or cutting selected to suit the grade and specification.</p>
             </article>
-            <article>
-              <h3>Hastelloy</h3>
-              <p>Selected for severe corrosion environments and chemical processing equipment.</p>
-              <span>Custom Drawings</span>
+            <article data-capability-item>
+              <small>Secondary processing</small>
+              <strong>Heat and surface treatment</strong>
+              <p>Coordinated when required by the material, service environment or purchase order.</p>
             </article>
-            <article>
-              <h3>Monel</h3>
-              <p>Nickel-copper alloy option for seawater and corrosive industrial environments.</p>
-              <span>Screws / Nuts / Washers</span>
+            <article data-capability-item>
+              <small>Order assurance</small>
+              <strong>Inspection and documentation</strong>
+              <p>Traceability, dimensional records and test reports aligned with the quoted scope.</p>
             </article>
-            <article>
-              <h3>Titanium</h3>
-              <p>Lightweight corrosion resistance for equipment where weight and durability matter.</p>
-              <span>Bolts / Screws</span>
-            </article>
-            <article>
-              <h3>Stainless & Duplex</h3>
-              <p>Industrial stainless grades for broader export fastener procurement programs.</p>
-              <span>Standard Parts</span>
+            <article data-capability-item>
+              <small>Export delivery</small>
+              <strong>Packing and shipment records</strong>
+              <p>Labels, cartons, pallets and export documents prepared for the destination.</p>
             </article>
           </div>
         </div>
@@ -211,57 +315,88 @@
 
       <section class="section quality-section" id="quality" aria-labelledby="quality-title">
         <div class="container quality-grid">
-          <figure class="quality-photo">
-            <img src="assets/quality-inspection.png" alt="Digital caliper inspection of a high-temperature alloy bolt in a quality lab" />
+          <figure class="quality-photo media-frame" data-scale-media>
+            <img src="assets/quality-inspection.png" alt="Dimensional inspection of an alloy bolt in a quality laboratory" />
           </figure>
-          <div class="quality-content">
-            <p class="eyebrow dark">Quality control</p>
-            <h2 id="quality-title">Inspection-ready documentation for procurement teams.</h2>
+          <div class="quality-content" data-reveal>
+            <p class="eyebrow">Quality and traceability</p>
+            <h2 id="quality-title">Documentation aligned with the order requirement.</h2>
             <p>
-              Each RFQ can be aligned with the required material certificate, dimensional inspection, thread checks,
-              hardness testing and packing documents before shipment.
+              Inspection and certification are quoted according to the applicable standard, drawing and purchaser
+              requirement. Available scope can include:
             </p>
             <div class="check-list">
-              <span>Material certificate support</span>
-              <span>Dimensional and thread inspection</span>
-              <span>Hardness and mechanical test coordination</span>
-              <span>Export carton, pallet and label options</span>
+              <span>MTC / EN 10204 3.1 documentation</span>
+              <span>Heat and lot number traceability</span>
+              <span>PMI, hardness and tensile testing</span>
+              <span>Ultrasonic and third-party inspection</span>
             </div>
+            <p class="quality-note">Testing and reports are provided when specified and confirmed with the order.</p>
           </div>
         </div>
       </section>
 
       <section class="section industries-section" id="industries" aria-labelledby="industries-title">
         <div class="container">
-          <div class="section-heading split">
+          <div class="section-heading split" data-reveal>
             <div>
               <p class="eyebrow dark">Application fit</p>
-              <h2 id="industries-title">For buyers sourcing parts for harsh industrial environments.</h2>
+              <h2 id="industries-title">Relevant to heat, pressure and corrosion-critical equipment.</h2>
             </div>
-            <p class="heading-note">
-              Use these pages later for SEO landing pages by material, industry and product type.
-            </p>
+            <p class="heading-note">Application suitability is reviewed against the buyer's engineering specification.</p>
           </div>
-          <div class="industry-grid">
-            <article>
-              <span>01</span>
-              <h3>Oil & Gas</h3>
-              <p>Fasteners for valves, pumps, flanges and field equipment exposed to corrosion and heat.</p>
+          <div class="industry-accordion" data-industry-accordion>
+            <article
+              class="industry-panel is-active"
+              data-industry-panel
+              tabindex="0"
+              style="--panel-image: url('assets/hero-fasteners.png')"
+            >
+              <div>
+                <span>Heat and pressure</span>
+                <h3>Energy &amp; Petrochemical</h3>
+                <p>Fasteners for valves, pumps, flanges and process systems exposed to loaded service.</p>
+                <a href="quote.html">Discuss the application <b aria-hidden="true">&rarr;</b></a>
+              </div>
             </article>
-            <article>
-              <span>02</span>
-              <h3>Chemical Processing</h3>
-              <p>Nickel alloy and corrosion-resistant fasteners for aggressive process environments.</p>
+            <article
+              class="industry-panel"
+              data-industry-panel
+              tabindex="0"
+              style="--panel-image: url('assets/quality-inspection.png')"
+            >
+              <div>
+                <span>Aggressive media</span>
+                <h3>Chemical Processing</h3>
+                <p>Nickel alloy requirements for chemical, chloride and corrosion-critical environments.</p>
+                <a href="quote.html">Discuss the application <b aria-hidden="true">&rarr;</b></a>
+              </div>
             </article>
-            <article>
-              <span>03</span>
-              <h3>Power Generation</h3>
-              <p>Bolting solutions for high-temperature equipment, maintenance and engineered assemblies.</p>
+            <article
+              class="industry-panel"
+              data-industry-panel
+              tabindex="0"
+              style="--panel-image: url('assets/product-fasteners.png')"
+            >
+              <div>
+                <span>Seawater exposure</span>
+                <h3>Marine &amp; Offshore</h3>
+                <p>Material options for seawater-adjacent equipment and offshore maintenance programs.</p>
+                <a href="quote.html">Discuss the application <b aria-hidden="true">&rarr;</b></a>
+              </div>
             </article>
-            <article>
-              <span>04</span>
-              <h3>Marine Equipment</h3>
-              <p>Monel, titanium and stainless options for seawater-adjacent service conditions.</p>
+            <article
+              class="industry-panel"
+              data-industry-panel
+              tabindex="0"
+              style="--panel-image: url('assets/hero-fasteners.png')"
+            >
+              <div>
+                <span>Elevated temperature</span>
+                <h3>Power Generation</h3>
+                <p>Bolting for thermal equipment, plant maintenance and engineered high-temperature assemblies.</p>
+                <a href="quote.html">Discuss the application <b aria-hidden="true">&rarr;</b></a>
+              </div>
             </article>
           </div>
         </div>
@@ -269,100 +404,36 @@
 
       <section class="section process-section" aria-labelledby="process-title">
         <div class="container">
-          <div class="section-heading centered">
+          <div class="section-heading centered" data-reveal>
             <p class="eyebrow dark">RFQ workflow</p>
-            <h2 id="process-title">From drawing review to export delivery.</h2>
+            <h2 id="process-title">A predictable route from drawing to shipment.</h2>
           </div>
           <div class="process-steps">
-            <article>
-              <span>1</span>
-              <h3>Send Specs</h3>
-              <p>Share product type, material, standard, size, quantity and drawing if available.</p>
-            </article>
-            <article>
-              <span>2</span>
-              <h3>Confirm Feasibility</h3>
-              <p>Review material availability, machining route, tolerance and document requirements.</p>
-            </article>
-            <article>
-              <span>3</span>
-              <h3>Quote & Produce</h3>
-              <p>Receive price, lead time and inspection plan before production and packing.</p>
-            </article>
-            <article>
-              <span>4</span>
-              <h3>Ship & Support</h3>
-              <p>Arrange export packing, shipment documents and follow-up support for repeat orders.</p>
-            </article>
+            <article data-reveal><span>1</span><h3>Upload Drawing</h3><p>Send the specification, drawing and quantity.</p></article>
+            <article data-reveal><span>2</span><h3>Technical Review</h3><p>Confirm material, geometry, tests and feasibility.</p></article>
+            <article data-reveal><span>3</span><h3>Quotation</h3><p>Receive price, lead time and proposed supply scope.</p></article>
+            <article data-reveal><span>4</span><h3>Production &amp; QC</h3><p>Coordinate manufacturing, inspection and records.</p></article>
+            <article data-reveal><span>5</span><h3>Shipment</h3><p>Prepare export packing and delivery documents.</p></article>
           </div>
         </div>
       </section>
 
       <section class="section rfq-section" id="rfq" aria-labelledby="rfq-title">
-        <div class="container rfq-grid">
+        <div class="container final-cta" data-reveal>
           <div>
-            <p class="eyebrow">Request a quote</p>
-            <h2 id="rfq-title">Send your fastener specification or drawing.</h2>
-            <p>
-              Replace the placeholder email with your company inbox. The form generates a structured RFQ email so buyers can send clear requirements quickly.
-            </p>
-            <div class="contact-card">
-              <span>Email</span>
-              <a href="mailto:sales@alloyforge-fasteners.com">sales@alloyforge-fasteners.com</a>
-            </div>
+            <p class="eyebrow">Ready for technical review</p>
+            <h2 id="rfq-title">Send the requirement. Expect a response within one business day.</h2>
+            <p>Upload a drawing or enter the standard, material, size, quantity and required testing.</p>
           </div>
-
-          <form class="rfq-form" data-rfq-form>
-            <div class="form-row">
-              <label>
-                Product Type
-                <select name="product" required>
-                  <option value="">Select product</option>
-                  <option>Screws</option>
-                  <option>Bolts</option>
-                  <option>Nuts</option>
-                  <option>Washers</option>
-                  <option>Studs</option>
-                  <option>Custom Fasteners</option>
-                </select>
-              </label>
-              <label>
-                Material
-                <input name="material" type="text" placeholder="Inconel 718, Hastelloy C276..." required />
-              </label>
-            </div>
-            <div class="form-row">
-              <label>
-                Standard / Drawing
-                <input name="standard" type="text" placeholder="DIN, ISO, ASTM, custom drawing..." />
-              </label>
-              <label>
-                Size Range
-                <input name="size" type="text" placeholder="M6 x 30, 1/2-13 UNC..." required />
-              </label>
-            </div>
-            <div class="form-row">
-              <label>
-                Quantity
-                <input name="quantity" type="text" placeholder="500 pcs, 2,000 sets..." required />
-              </label>
-              <label>
-                Destination Country
-                <input name="country" type="text" placeholder="United States, Germany..." />
-              </label>
-            </div>
-            <label>
-              Notes
-              <textarea name="notes" rows="4" placeholder="Temperature, corrosion environment, certificate requirement, delivery target..."></textarea>
-            </label>
-            <button class="button primary form-submit" type="submit">
+          <div class="final-cta-actions">
+            <a class="button light" href="quote.html">
+              Request a Quote
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m3 5 18 7-18 7 2.2-6.2H12v-1.6H5.2L3 5Zm2.7 2.7 1 2.7h6.8v3.2H6.7l-1 2.7L16.6 12 5.7 7.7Z" />
+                <path d="M13.2 5.2 20 12l-6.8 6.8-1.2-1.2 4.8-4.8H4v-1.6h12.8L12 6.4l1.2-1.2Z" />
               </svg>
-              Create RFQ Email
-            </button>
-            <p class="form-status" data-form-status aria-live="polite"></p>
-          </form>
+            </a>
+            <a class="business-email" href="mailto:sales@alloyforge-fasteners.com">sales@alloyforge-fasteners.com</a>
+          </div>
         </div>
       </section>
     </main>
@@ -371,25 +442,29 @@
       <div class="container footer-grid">
         <div>
           <strong>AlloyForge Fasteners</strong>
-          <p>High-temperature alloy fastener export website prototype.</p>
+          <p>High-temperature alloy fasteners for international industrial procurement.</p>
         </div>
         <div>
           <span>Products</span>
-          <a href="#products">Screws</a>
-          <a href="#products">Bolts</a>
-          <a href="#products">Custom Fasteners</a>
+          <a href="#products">Bolts &amp; Studs</a>
+          <a href="#products">Nuts &amp; Washers</a>
+          <a href="#products">Custom Components</a>
         </div>
         <div>
-          <span>Materials</span>
-          <a href="#materials">Inconel</a>
-          <a href="#materials">Hastelloy</a>
-          <a href="#materials">Titanium</a>
+          <span>Capabilities</span>
+          <a href="#materials">Materials</a>
+          <a href="#capabilities">Custom Supply</a>
+          <a href="#quality">Quality</a>
         </div>
         <div>
           <span>Contact</span>
-          <a href="#rfq">Request Quote</a>
+          <a href="quote.html">Request a Quote</a>
           <a href="mailto:sales@alloyforge-fasteners.com">Email Sales</a>
         </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 AlloyForge Fasteners</span>
+        <span>Export-focused industrial supply</span>
       </div>
     </footer>
   </body>

@@ -1,63 +1,484 @@
+document.documentElement.classList.add("js");
+
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const rfqForm = document.querySelector("[data-rfq-form]");
-const formStatus = document.querySelector("[data-form-status]");
 const fastenerCanvas = document.querySelector("[data-fastener-canvas]");
-
-const salesEmail = "sales@alloyforge-fasteners.com";
 const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function setHeaderState() {
-  header.classList.toggle("is-scrolled", window.scrollY > 18);
+  if (header) {
+    header.classList.toggle("is-scrolled", window.scrollY > 18);
+  }
 }
 
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
 
-navToggle.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-  navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-});
+if (nav && navToggle) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  });
 
-nav.addEventListener("click", (event) => {
-  if (event.target.closest("a")) {
-    nav.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Open menu");
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Open menu");
+    }
+  });
+}
+
+function initRevealAnimations() {
+  const revealItems = [...document.querySelectorAll("[data-reveal]")];
+  if (!revealItems.length) {
+    return;
   }
-});
 
-rfqForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+  if (reduceMotionQuery.matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
 
-  const formData = new FormData(rfqForm);
-  const lines = [
-    "Hello AlloyForge Fasteners,",
-    "",
-    "Please quote the following fastener requirement:",
-    "",
-    `Product Type: ${formData.get("product") || ""}`,
-    `Material: ${formData.get("material") || ""}`,
-    `Standard / Drawing: ${formData.get("standard") || ""}`,
-    `Size Range: ${formData.get("size") || ""}`,
-    `Quantity: ${formData.get("quantity") || ""}`,
-    `Destination Country: ${formData.get("country") || ""}`,
-    "",
-    "Notes:",
-    formData.get("notes") || "",
-    "",
-    "Best regards,"
-  ];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px" }
+  );
 
-  const subject = encodeURIComponent(`RFQ - ${formData.get("material") || "Alloy"} ${formData.get("product") || "Fasteners"}`);
-  const body = encodeURIComponent(lines.join("\n"));
-  const mailtoUrl = `mailto:${salesEmail}?subject=${subject}&body=${body}`;
+  revealItems.forEach((item) => observer.observe(item));
+}
 
-  formStatus.textContent = "Opening your email client with the RFQ details.";
-  window.location.href = mailtoUrl;
-});
+function formatFileSize(bytes) {
+  if (bytes < 1024) {
+    return `${bytes} B`;
+  }
+  if (bytes < 1024 * 1024) {
+    return `${(bytes / 1024).toFixed(1)} KB`;
+  }
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function createInquiryNumber() {
+  const now = new Date();
+  const date = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("");
+  const random = String(Math.floor(1000 + Math.random() * 9000));
+  return `AF-${date}-${random}`;
+}
+
+function initRfqForm() {
+  if (!rfqForm) {
+    return;
+  }
+
+  const formStatus = rfqForm.querySelector("[data-form-status]");
+  const submitButton = rfqForm.querySelector("[data-submit-button]");
+  const submitLabel = rfqForm.querySelector("[data-submit-label]");
+  const successPanel = document.querySelector("[data-rfq-success]");
+  const newRfqButton = document.querySelector("[data-new-rfq]");
+  const productSelect = rfqForm.querySelector("[data-product-select]");
+  const productOther = rfqForm.querySelector("[data-product-other]");
+  const productOtherInput = productOther?.querySelector("input");
+  const testingOtherToggle = rfqForm.querySelector("[data-testing-other-toggle]");
+  const testingOther = rfqForm.querySelector("[data-testing-other]");
+  const fileInput = rfqForm.querySelector("[data-file-input]");
+  const uploadZone = rfqForm.querySelector("[data-upload-zone]");
+  const uploadError = rfqForm.querySelector("[data-upload-error]");
+  const fileList = rfqForm.querySelector("[data-file-list]");
+  const acceptedExtensions = new Set(["pdf", "dwg", "dxf", "step", "stp", "jpg", "jpeg", "png"]);
+  const maxFileSize = 10 * 1024 * 1024;
+  let selectedFiles = [];
+
+  function getFieldError(field) {
+    return rfqForm.querySelector(`[data-error-for="${field.name}"]`);
+  }
+
+  function validationMessage(field) {
+    if (field.validity.valueMissing) {
+      return "Please complete this required field.";
+    }
+    if (field.validity.typeMismatch && field.type === "email") {
+      return "Enter a valid business email address.";
+    }
+    if (field.validity.rangeUnderflow) {
+      return "Quantity must be at least 1.";
+    }
+    return "Check this value and try again.";
+  }
+
+  function validateField(field) {
+    if (!field.name || field.disabled || field.type === "checkbox" || field.type === "file") {
+      return true;
+    }
+
+    const isValid = field.checkValidity();
+    const error = getFieldError(field);
+    field.setAttribute("aria-invalid", String(!isValid));
+    if (error) {
+      error.textContent = isValid ? "" : validationMessage(field);
+    }
+    return isValid;
+  }
+
+  function updateProductOther() {
+    if (!productSelect || !productOther || !productOtherInput) {
+      return;
+    }
+    const isOther = productSelect.value === "Other";
+    productOther.hidden = !isOther;
+    productOtherInput.required = isOther;
+    if (!isOther) {
+      productOtherInput.value = "";
+      productOtherInput.removeAttribute("aria-invalid");
+      const error = getFieldError(productOtherInput);
+      if (error) {
+        error.textContent = "";
+      }
+    }
+  }
+
+  function updateTestingOther() {
+    if (!testingOtherToggle || !testingOther) {
+      return;
+    }
+    testingOther.hidden = !testingOtherToggle.checked;
+    if (!testingOtherToggle.checked) {
+      const input = testingOther.querySelector("input");
+      if (input) {
+        input.value = "";
+      }
+    }
+  }
+
+  function syncFileInput() {
+    if (!fileInput || typeof DataTransfer === "undefined") {
+      return;
+    }
+
+    const transfer = new DataTransfer();
+    selectedFiles.forEach((file) => transfer.items.add(file));
+    fileInput.files = transfer.files;
+  }
+
+  function renderFiles() {
+    if (!fileList) {
+      return;
+    }
+
+    fileList.replaceChildren();
+    selectedFiles.forEach((file, index) => {
+      const item = document.createElement("li");
+      const extension = file.name.split(".").pop()?.toUpperCase() || "FILE";
+      const type = document.createElement("span");
+      const meta = document.createElement("span");
+      const name = document.createElement("strong");
+      const size = document.createElement("small");
+      const remove = document.createElement("button");
+
+      type.className = "file-type";
+      type.textContent = extension;
+      meta.className = "file-meta";
+      name.textContent = file.name;
+      size.textContent = `${formatFileSize(file.size)} · Ready`;
+      meta.append(name, size);
+      remove.className = "file-remove";
+      remove.type = "button";
+      remove.textContent = "×";
+      remove.setAttribute("aria-label", `Remove ${file.name}`);
+      remove.addEventListener("click", () => {
+        selectedFiles.splice(index, 1);
+        syncFileInput();
+        renderFiles();
+      });
+      item.append(type, meta, remove);
+      fileList.append(item);
+    });
+  }
+
+  function addFiles(files) {
+    if (!uploadError) {
+      return;
+    }
+
+    const errors = [];
+    [...files].forEach((file) => {
+      const extension = file.name.split(".").pop()?.toLowerCase() || "";
+      if (!acceptedExtensions.has(extension)) {
+        errors.push(`${file.name}: unsupported format.`);
+        return;
+      }
+      if (file.size > maxFileSize) {
+        errors.push(`${file.name}: file exceeds 10 MB.`);
+        return;
+      }
+
+      const isDuplicate = selectedFiles.some(
+        (selected) =>
+          selected.name === file.name &&
+          selected.size === file.size &&
+          selected.lastModified === file.lastModified
+      );
+      if (!isDuplicate) {
+        selectedFiles.push(file);
+      }
+    });
+
+    uploadError.textContent = errors.join(" ");
+    syncFileInput();
+    renderFiles();
+  }
+
+  rfqForm.querySelectorAll("input, select, textarea").forEach((field) => {
+    field.addEventListener("blur", () => validateField(field));
+    field.addEventListener("input", () => {
+      if (field.getAttribute("aria-invalid") === "true") {
+        validateField(field);
+      }
+    });
+  });
+
+  if (productSelect) {
+    const requestedProduct = new URLSearchParams(window.location.search).get("product");
+    if (requestedProduct && [...productSelect.options].some((option) => option.value === requestedProduct)) {
+      productSelect.value = requestedProduct;
+    }
+    productSelect.addEventListener("change", updateProductOther);
+    updateProductOther();
+  }
+
+  if (testingOtherToggle) {
+    testingOtherToggle.addEventListener("change", updateTestingOther);
+    updateTestingOther();
+  }
+
+  if (fileInput && uploadZone) {
+    fileInput.addEventListener("change", () => addFiles(fileInput.files));
+    uploadZone.addEventListener("click", (event) => {
+      if (event.target !== fileInput) {
+        fileInput.click();
+      }
+    });
+    uploadZone.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        fileInput.click();
+      }
+    });
+
+    ["dragenter", "dragover"].forEach((eventName) => {
+      uploadZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        uploadZone.classList.add("is-dragging");
+      });
+    });
+
+    ["dragleave", "drop"].forEach((eventName) => {
+      uploadZone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        uploadZone.classList.remove("is-dragging");
+      });
+    });
+
+    uploadZone.addEventListener("drop", (event) => addFiles(event.dataTransfer.files));
+  }
+
+  rfqForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const fields = [...rfqForm.querySelectorAll("input, select, textarea")];
+    const invalidFields = fields.filter((field) => !validateField(field));
+
+    if (invalidFields.length) {
+      formStatus.textContent = "Please correct the highlighted fields before submitting.";
+      invalidFields[0].focus();
+      return;
+    }
+
+    formStatus.textContent = "";
+    submitButton.disabled = true;
+    submitLabel.textContent = "Submitting...";
+
+    window.setTimeout(() => {
+      const email = rfqForm.elements.email.value;
+      document.querySelector("[data-rfq-number]").textContent = createInquiryNumber();
+      document.querySelector("[data-rfq-email]").textContent = email;
+      rfqForm.hidden = true;
+      successPanel.hidden = false;
+      submitButton.disabled = false;
+      submitLabel.textContent = "Submit RFQ";
+      successPanel.focus?.();
+      successPanel.scrollIntoView({ behavior: reduceMotionQuery.matches ? "auto" : "smooth", block: "start" });
+    }, 650);
+  });
+
+  if (newRfqButton && successPanel) {
+    newRfqButton.addEventListener("click", () => {
+      rfqForm.reset();
+      selectedFiles = [];
+      renderFiles();
+      if (uploadError) {
+        uploadError.textContent = "";
+      }
+      rfqForm.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute("aria-invalid"));
+      rfqForm.querySelectorAll("[data-error-for]").forEach((error) => {
+        error.textContent = "";
+      });
+      updateProductOther();
+      updateTestingOther();
+      successPanel.hidden = true;
+      rfqForm.hidden = false;
+      rfqForm.scrollIntoView({ behavior: reduceMotionQuery.matches ? "auto" : "smooth", block: "start" });
+    });
+  }
+}
+
+function initMaterialCarousel() {
+  const carousel = document.querySelector("[data-material-carousel]");
+  if (!carousel) {
+    return;
+  }
+
+  const slides = [...carousel.querySelectorAll("[data-material-slide]")];
+  const previousButton = carousel.querySelector("[data-material-prev]");
+  const nextButton = carousel.querySelector("[data-material-next]");
+  const currentLabel = carousel.querySelector("[data-material-current]");
+  const progress = carousel.querySelector("[data-material-progress]");
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+    currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+    progress.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
+  }
+
+  previousButton.addEventListener("click", () => showSlide(currentIndex - 1));
+  nextButton.addEventListener("click", () => showSlide(currentIndex + 1));
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      showSlide(currentIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      showSlide(currentIndex + 1);
+    }
+  });
+  showSlide(0);
+}
+
+function initIndustryAccordion() {
+  const accordion = document.querySelector("[data-industry-accordion]");
+  if (!accordion) {
+    return;
+  }
+
+  const panels = [...accordion.querySelectorAll("[data-industry-panel]")];
+  function activatePanel(activePanel) {
+    panels.forEach((panel) => panel.classList.toggle("is-active", panel === activePanel));
+  }
+
+  panels.forEach((panel) => {
+    panel.addEventListener("mouseenter", () => activatePanel(panel));
+    panel.addEventListener("focusin", () => activatePanel(panel));
+    panel.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) {
+        activatePanel(panel);
+      }
+    });
+  });
+}
+
+let tasteMotionContext = null;
+
+function initTasteMotion() {
+  if (tasteMotionContext || reduceMotionQuery.matches || !window.gsap || !window.ScrollTrigger) {
+    return;
+  }
+
+  window.gsap.registerPlugin(window.ScrollTrigger);
+  document.documentElement.classList.add("gsap-enabled");
+
+  tasteMotionContext = window.gsap.context(() => {
+    window.gsap.utils.toArray("[data-scale-media]").forEach((media) => {
+      window.gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: media,
+            start: "top 94%",
+            end: "bottom 8%",
+            scrub: 1.1
+          }
+        })
+        .fromTo(media, { scale: 0.86, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.46, ease: "none" })
+        .to(media, { scale: 0.96, opacity: 0.22, duration: 0.54, ease: "none" });
+    });
+
+    const capabilitySection = document.querySelector(".capability-section");
+    const capabilityCopy = document.querySelector("[data-capability-copy]");
+    const capabilityItems = [...document.querySelectorAll("[data-capability-item]")];
+
+    if (capabilitySection && capabilityCopy) {
+      const mediaQuery = window.gsap.matchMedia();
+      mediaQuery.add("(min-width: 1061px)", () => {
+        window.ScrollTrigger.create({
+          trigger: capabilitySection,
+          start: "top top+=104",
+          end: "bottom bottom-=80",
+          pin: capabilityCopy,
+          pinSpacing: false,
+          anticipatePin: 1
+        });
+      });
+    }
+
+    capabilityItems.forEach((item) => {
+      window.gsap.fromTo(
+        item,
+        { opacity: 0.25, y: 36 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 88%",
+            end: "top 58%",
+            scrub: 0.8
+          }
+        }
+      );
+    });
+  });
+}
+
+function stopTasteMotion() {
+  if (tasteMotionContext) {
+    tasteMotionContext.revert();
+    tasteMotionContext = null;
+  }
+  document.documentElement.classList.remove("gsap-enabled");
+}
+
+initRevealAnimations();
+initRfqForm();
+initMaterialCarousel();
+initIndustryAccordion();
+initTasteMotion();
 
 function createShader(gl, type, source) {
   const shader = gl.createShader(type);
@@ -489,6 +910,7 @@ let fastenerHero = initFastenerHero();
 
 function syncMotionPreference(event) {
   if (event.matches) {
+    stopTasteMotion();
     if (fastenerHero) {
       fastenerHero.pause();
       fastenerHero = null;
@@ -498,6 +920,7 @@ function syncMotionPreference(event) {
   }
 
   fastenerHero = initFastenerHero();
+  initTasteMotion();
 }
 
 if (reduceMotionQuery.addEventListener) {
