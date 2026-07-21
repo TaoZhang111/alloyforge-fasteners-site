@@ -428,40 +428,28 @@ function initTasteMotion() {
         .to(media, { scale: 0.96, opacity: 0.22, duration: 0.54, ease: "none" });
     });
 
-    const capabilitySection = document.querySelector(".capability-section");
-    const capabilityCopy = document.querySelector("[data-capability-copy]");
-    const capabilityItems = [...document.querySelectorAll("[data-capability-item]")];
+    const stackCards = window.gsap.utils.toArray("[data-stack-card]");
+    const stackMedia = window.gsap.matchMedia();
 
-    if (capabilitySection && capabilityCopy) {
-      const mediaQuery = window.gsap.matchMedia();
-      mediaQuery.add("(min-width: 1061px)", () => {
-        window.ScrollTrigger.create({
-          trigger: capabilitySection,
-          start: "top top+=104",
-          end: "bottom bottom-=80",
-          pin: capabilityCopy,
-          pinSpacing: false,
-          anticipatePin: 1
-        });
-      });
-    }
-
-    capabilityItems.forEach((item) => {
-      window.gsap.fromTo(
-        item,
-        { opacity: 0.25, y: 36 },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 88%",
-            end: "top 58%",
-            scrub: 0.8
+    stackMedia.add("(min-width: 761px)", () => {
+      stackCards.forEach((card) => {
+        window.gsap.fromTo(
+          card,
+          { opacity: 0.36, y: 110, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 94%",
+              end: "top 56%",
+              scrub: 0.9
+            }
           }
-        }
-      );
+        );
+      });
     });
   });
 }

@@ -9,11 +9,6 @@
       content="High-temperature alloy bolts, studs, nuts, washers and custom components for heat, pressure and corrosion-critical industrial applications."
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&amp;display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
     <script src="assets/vendor/gsap.min.js" defer></script>
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
@@ -70,54 +65,10 @@
             <a class="button secondary" href="#products">Explore Products</a>
           </div>
         </div>
-        <a class="scroll-cue" href="#trust" aria-label="Scroll to supplier capabilities">
+        <a class="scroll-cue" href="#products" aria-label="Scroll to product range">
           <span>Scroll</span>
           <i aria-hidden="true"></i>
         </a>
-      </section>
-
-      <section class="trust-marquee" id="trust" aria-label="Procurement commitments">
-        <div class="marquee-track" data-marquee>
-          <div class="marquee-group">
-            <span><i aria-hidden="true"></i>Custom sizes from drawings</span>
-            <span><i aria-hidden="true"></i>Material and heat traceability</span>
-            <span><i aria-hidden="true"></i>Testing quoted on request</span>
-            <span><i aria-hidden="true"></i>DIN · ISO · ASTM · ASME</span>
-            <span><i aria-hidden="true"></i>Response within one business day</span>
-          </div>
-          <div class="marquee-group" aria-hidden="true">
-            <span><i></i>Custom sizes from drawings</span>
-            <span><i></i>Material and heat traceability</span>
-            <span><i></i>Testing quoted on request</span>
-            <span><i></i>DIN · ISO · ASTM · ASME</span>
-            <span><i></i>Response within one business day</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section intro-section" aria-labelledby="company-title">
-        <div class="container company-grid">
-          <div class="company-copy" data-reveal>
-            <p class="eyebrow dark">Procurement-focused alloy supply</p>
-            <h2 id="company-title">A clear route from technical requirement to export-ready fasteners.</h2>
-            <p>
-              AlloyForge supports international buyers sourcing standard and custom fasteners for high-temperature and
-              corrosive service. Quotations are built around the material grade, drawing, standard, thread, quantity,
-              testing and delivery destination.
-            </p>
-            <ul class="plain-list">
-              <li>Standard parts and drawing-based custom components</li>
-              <li>Nickel alloy and high-performance material sourcing</li>
-              <li>Coordinated processing, inspection and export documentation</li>
-            </ul>
-          </div>
-          <figure class="company-photo media-frame" data-scale-media>
-            <img
-              src="assets/hero-fasteners.png"
-              alt="High-temperature alloy bolts, studs, nuts and washers on a metal work surface"
-            />
-          </figure>
-        </div>
       </section>
 
       <section class="section products-section" id="products" aria-labelledby="products-title">
@@ -125,7 +76,9 @@
           <div class="section-heading split" data-reveal>
             <div>
               <p class="eyebrow dark">Product range</p>
-              <h2 id="products-title">Five core fastener categories, supplied to specification.</h2>
+              <h2 id="products-title">
+                Five core <span class="inline-heading-image" aria-hidden="true"></span> fastener categories, supplied to specification.
+              </h2>
             </div>
             <a class="text-link" href="quote.html">
               Send specifications
@@ -402,18 +355,55 @@
         </div>
       </section>
 
-      <section class="section process-section" aria-labelledby="process-title">
+      <section class="section company-capability-section" id="company" aria-labelledby="company-title">
         <div class="container">
-          <div class="section-heading centered" data-reveal>
-            <p class="eyebrow dark">RFQ workflow</p>
-            <h2 id="process-title">A predictable route from drawing to shipment.</h2>
+          <div class="company-grid">
+            <div class="company-copy" data-reveal>
+              <p class="eyebrow dark">Company capability</p>
+              <h2 id="company-title">A clear route from technical requirement to export-ready fasteners.</h2>
+              <p>
+                AlloyForge supports international buyers with drawing-based review, alloy sourcing, coordinated
+                processing, inspection and export documentation for demanding fastener requirements.
+              </p>
+              <ul class="plain-list">
+                <li>Standard parts and drawing-based custom components</li>
+                <li>Nickel alloy and high-performance material sourcing</li>
+                <li>Coordinated processing, inspection and export documentation</li>
+              </ul>
+            </div>
+            <figure class="company-photo media-frame" data-scale-media>
+              <img src="assets/hero-fasteners.png" alt="High-temperature alloy fasteners prepared for export supply" />
+            </figure>
           </div>
-          <div class="process-steps">
-            <article data-reveal><span>1</span><h3>Upload Drawing</h3><p>Send the specification, drawing and quantity.</p></article>
-            <article data-reveal><span>2</span><h3>Technical Review</h3><p>Confirm material, geometry, tests and feasibility.</p></article>
-            <article data-reveal><span>3</span><h3>Quotation</h3><p>Receive price, lead time and proposed supply scope.</p></article>
-            <article data-reveal><span>4</span><h3>Production &amp; QC</h3><p>Coordinate manufacturing, inspection and records.</p></article>
-            <article data-reveal><span>5</span><h3>Shipment</h3><p>Prepare export packing and delivery documents.</p></article>
+
+          <div class="company-process">
+            <div class="company-process-heading" data-reveal>
+              <p class="eyebrow dark">From RFQ to shipment</p>
+              <h3>A predictable supply workflow.</h3>
+              <p>Each stage is confirmed against the drawing, purchase specification and required documentation.</p>
+            </div>
+            <div class="process-stack" data-process-stack>
+              <article class="stack-card" data-stack-card style="--stack-order: 0">
+                <span>01</span>
+                <div><h4>Upload Drawing</h4><p>Send the specification, drawing, material and required quantity.</p></div>
+              </article>
+              <article class="stack-card" data-stack-card style="--stack-order: 1">
+                <span>02</span>
+                <div><h4>Technical Review</h4><p>Confirm geometry, alloy condition, testing scope and manufacturing feasibility.</p></div>
+              </article>
+              <article class="stack-card" data-stack-card style="--stack-order: 2">
+                <span>03</span>
+                <div><h4>Quotation</h4><p>Receive the proposed supply scope, pricing, lead time and commercial terms.</p></div>
+              </article>
+              <article class="stack-card" data-stack-card style="--stack-order: 3">
+                <span>04</span>
+                <div><h4>Production &amp; QC</h4><p>Coordinate manufacturing, dimensional inspection, testing and traceability records.</p></div>
+              </article>
+              <article class="stack-card" data-stack-card style="--stack-order: 4">
+                <span>05</span>
+                <div><h4>Shipment</h4><p>Prepare protected export packing, labels and destination-ready delivery documents.</p></div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -455,6 +445,7 @@
           <a href="#materials">Materials</a>
           <a href="#capabilities">Custom Supply</a>
           <a href="#quality">Quality</a>
+          <a href="#company">Company Capability</a>
         </div>
         <div>
           <span>Contact</span>
