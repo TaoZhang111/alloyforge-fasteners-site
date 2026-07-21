@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "home": {
+      "title": "AlloyForge Fasteners | Fijaciones de aleación para alta temperatura",
+      "description": "Pernos, espárragos, tuercas, arandelas y componentes a medida en aleaciones para alta temperatura, destinados a aplicaciones industriales críticas por calor, presión y corrosión."
+    },
+    "quote": {
+      "title": "Solicitar cotización | AlloyForge Fasteners",
+      "description": "Solicite una cotización de pernos, espárragos, tuercas, arandelas y componentes estándar o a medida en aleaciones para alta temperatura."
+    }
+  },
+  "header": {
+    "brand": "AlloyForge",
+    "brandTag": "Fijaciones de alta temperatura",
+    "homeAria": "Inicio de AlloyForge Fasteners",
+    "navAria": "Navegación principal",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
+    "nav": {
+      "products": "Productos",
+      "materials": "Materiales",
+      "capabilities": "Capacidades",
+      "quality": "Calidad",
+      "cta": "Solicitar cotización"
+    }
+  },
+  "hero": {
+    "eyebrow": "FIJACIONES DE ALEACIÓN PARA ALTA TEMPERATURA",
+    "title": "Fijaciones de aleación para calor, presión y corrosión.",
+    "copy": "Pernos, espárragos, tuercas, arandelas y componentes a medida en aleaciones base níquel y de alto rendimiento.",
+    "requestQuote": "Solicitar cotización",
+    "explore": "Ver productos",
+    "scroll": "Deslizar",
+    "scrollAria": "Ir a la gama de productos"
+  },
+  "products": {
+    "eyebrow": "Gama de productos",
+    "titleBefore": "Cinco categorías principales de",
+    "titleAfter": "fijaciones, suministradas según especificación.",
+    "sendSpecs": "Enviar especificaciones",
+    "photoAlt": "Pernos, espárragos, tuercas y arandelas de aleación dispuestos para inspección",
+    "listAria": "Categorías de productos",
+    "cards": [
+      {
+        "value": "Bolts",
+        "type": "Hexagonal · Allen · Cabeza especial",
+        "name": "Pernos",
+        "copy": "Pernos hexagonales, Allen y de cabeza especial para montajes de alta temperatura.",
+        "link": "Cotizar pernos"
+      },
+      {
+        "value": "Stud Bolts",
+        "type": "Rosca completa · Doble extremo",
+        "name": "Espárragos",
+        "copy": "Configuraciones de rosca completa, doble extremo y específicas para cada aplicación.",
+        "link": "Cotizar espárragos"
+      },
+      {
+        "value": "Nuts",
+        "type": "Hexagonal · Hexagonal pesada · Especial",
+        "name": "Tuercas",
+        "copy": "Tuercas hexagonales, hexagonales pesadas y especiales según la aleación y la rosca requeridas.",
+        "link": "Cotizar tuercas"
+      },
+      {
+        "value": "Washers",
+        "type": "Plana · Perfil a medida",
+        "name": "Arandelas",
+        "copy": "Arandelas planas y de perfil a medida para distribución de carga y resistencia a la corrosión.",
+        "link": "Cotizar arandelas"
+      },
+      {
+        "value": "Custom Components",
+        "type": "Según plano · No estándar",
+        "name": "Componentes a medida",
+        "copy": "Geometrías no estándar, roscas especiales y series cortas de prueba a partir de su plano.",
+        "link": "Subir un plano"
+      }
+    ]
+  },
+  "materials": {
+    "eyebrow": "Capacidad de materiales",
+    "title": "Aleaciones seleccionadas para condiciones de servicio severas.",
+    "note": "La selección final del material, la certificación y el alcance de los ensayos se confirman según cada especificación de compra.",
+    "prevAria": "Material anterior",
+    "nextAria": "Material siguiente",
+    "serviceLabel": "Servicio relevante",
+    "reviewLabel": "Revisión de suministro",
+    "slides": [
+      {
+        "family": "Aleación Ni-Cr-Mo",
+        "name": "Inconel 625",
+        "copy": "Gran resistencia al agua de mar, a los ambientes con cloruros y a la oxidación a alta temperatura.",
+        "service": "Marino · Químico · Offshore",
+        "review": "Formato de fijación, norma y certificación",
+        "image": "/assets/hero-fasteners.png",
+        "imageAlt": "Fijaciones de aleación de níquel sobre una superficie metálica mecanizada"
+      },
+      {
+        "family": "Aleación Ni-Cr-Fe",
+        "name": "Inconel 718",
+        "copy": "Alta resistencia mecánica y a la fluencia para montajes cargados a temperaturas elevadas.",
+        "service": "Generación · Energía · Turbomaquinaria",
+        "review": "Estado de resistencia, rosca y alcance de ensayos",
+        "image": "/assets/product-fasteners.png",
+        "imageAlt": "Surtido de pernos, espárragos, tuercas y arandelas de aleación"
+      },
+      {
+        "family": "Aleación Ni-Mo-Cr",
+        "name": "Hastelloy C276",
+        "copy": "Amplia resistencia a la corrosión en entornos químicos agresivos.",
+        "service": "Químico · Equipos de proceso",
+        "review": "Exposición al medio, plano e inspección",
+        "image": "/assets/quality-inspection.png",
+        "imageAlt": "Inspección de fijaciones de aleación en un laboratorio de calidad"
+      },
+      {
+        "family": "Grados según pedido",
+        "name": "Otras aleaciones de alto rendimiento",
+        "copy": "Monel, titanio, dúplex y otros grados evaluados según el requisito de operación.",
+        "service": "Marino · Químico · Peso crítico",
+        "review": "Según plano o norma de material",
+        "image": "/assets/hero-fasteners.png",
+        "imageAlt": "Fijaciones de aleación especial preparadas para suministro industrial"
+      }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "Capacidad de suministro y a medida",
+    "title": "Cotice según el plano, la norma, la rosca y la cantidad que realmente necesita.",
+    "copy": "La fabricación y los procesos secundarios pueden coordinarse a través de socios de suministro cualificados. La ruta propuesta, el alcance de inspección y la documentación se confirman con la cotización.",
+    "cta": "Suba su requisito",
+    "listAria": "Procesos de suministro disponibles",
+    "items": [
+      {
+        "stage": "Antes de cotizar",
+        "name": "Revisión técnica del plano",
+        "copy": "Dimensiones, tolerancias, forma de rosca, estado del material y cantidad del pedido."
+      },
+      {
+        "stage": "Proceso primario",
+        "name": "Mecanizado y producción de rosca",
+        "copy": "Torneado, laminado o roscado por corte según el grado y la especificación."
+      },
+      {
+        "stage": "Proceso secundario",
+        "name": "Tratamiento térmico y superficial",
+        "copy": "Se coordina cuando lo exige el material, el entorno de servicio o la orden de compra."
+      },
+      {
+        "stage": "Garantía del pedido",
+        "name": "Inspección y documentación",
+        "copy": "Trazabilidad, registros dimensionales e informes de ensayo conforme al alcance cotizado."
+      },
+      {
+        "stage": "Entrega de exportación",
+        "name": "Embalaje y documentos de envío",
+        "copy": "Etiquetas, cajas, palés y documentos de exportación preparados para el destino."
+      }
+    ]
+  },
+  "quality": {
+    "eyebrow": "Calidad y trazabilidad",
+    "title": "Documentación conforme al requisito del pedido.",
+    "copy": "La inspección y la certificación se cotizan según la norma aplicable, el plano y el requisito del comprador. El alcance disponible puede incluir:",
+    "photoAlt": "Inspección dimensional de un perno de aleación en un laboratorio de calidad",
+    "checks": [
+      "Documentación MTC / EN 10204 3.1",
+      "Trazabilidad por colada y lote",
+      "Ensayos PMI, de dureza y de tracción",
+      "Ultrasonidos e inspección de tercera parte"
+    ],
+    "note": "Los ensayos e informes se entregan cuando se especifican y se confirman con el pedido."
+  },
+  "industries": {
+    "eyebrow": "Ajuste a la aplicación",
+    "title": "Relevante para equipos críticos por calor, presión y corrosión.",
+    "note": "La idoneidad de la aplicación se evalúa según la especificación de ingeniería del comprador.",
+    "discuss": "Consultar la aplicación",
+    "panels": [
+      {
+        "tag": "Calor y presión",
+        "name": "Energía y petroquímica",
+        "copy": "Fijaciones para válvulas, bombas, bridas y sistemas de proceso sometidos a servicio con carga.",
+        "image": "/assets/hero-fasteners.png"
+      },
+      {
+        "tag": "Medios agresivos",
+        "name": "Procesos químicos",
+        "copy": "Requisitos de aleación de níquel para entornos químicos, con cloruros y críticos por corrosión.",
+        "image": "/assets/quality-inspection.png"
+      },
+      {
+        "tag": "Exposición al agua de mar",
+        "name": "Marino y offshore",
+        "copy": "Opciones de material para equipos próximos al mar y programas de mantenimiento offshore.",
+        "image": "/assets/product-fasteners.png"
+      },
+      {
+        "tag": "Temperatura elevada",
+        "name": "Generación de energía",
+        "copy": "Pernería para equipos térmicos, mantenimiento de planta y montajes de alta temperatura.",
+        "image": "/assets/hero-fasteners.png"
+      }
+    ]
+  },
+  "company": {
+    "eyebrow": "Capacidad de la empresa",
+    "title": "Una ruta clara del requisito técnico a fijaciones listas para exportar.",
+    "copy": "AlloyForge apoya a compradores internacionales con revisión según plano, aprovisionamiento de aleaciones, procesos coordinados, inspección y documentación de exportación para requisitos exigentes.",
+    "photoAlt": "Fijaciones de aleación para alta temperatura preparadas para suministro de exportación",
+    "bullets": [
+      "Piezas estándar y componentes a medida según plano",
+      "Aprovisionamiento de aleaciones de níquel y materiales de alto rendimiento",
+      "Procesos coordinados, inspección y documentación de exportación"
+    ],
+    "processEyebrow": "De la solicitud al envío",
+    "processTitle": "Un flujo de suministro predecible.",
+    "processCopy": "Cada etapa se confirma según el plano, la especificación de compra y la documentación requerida.",
+    "steps": [
+      { "name": "Subir el plano", "copy": "Envíe la especificación, el plano, el material y la cantidad requerida." },
+      { "name": "Revisión técnica", "copy": "Confirmación de geometría, estado de la aleación, alcance de ensayos y viabilidad de fabricación." },
+      { "name": "Cotización", "copy": "Reciba el alcance de suministro propuesto, precios, plazo de entrega y condiciones comerciales." },
+      { "name": "Producción y control de calidad", "copy": "Coordinación de fabricación, inspección dimensional, ensayos y registros de trazabilidad." },
+      { "name": "Envío", "copy": "Embalaje de exportación protegido, etiquetas y documentos de entrega listos para el destino." }
+    ]
+  },
+  "rfqCta": {
+    "eyebrow": "Listos para la revisión técnica",
+    "title": "Envíe su requisito. Respuesta en un día hábil.",
+    "copy": "Suba un plano o indique la norma, el material, la medida, la cantidad y los ensayos requeridos.",
+    "button": "Solicitar cotización",
+    "email": "sales@alloyforge-fasteners.com"
+  },
+  "footer": {
+    "brand": "AlloyForge Fasteners",
+    "copy": "Fijaciones de aleación para alta temperatura para compras industriales internacionales.",
+    "productsLabel": "Productos",
+    "productLinks": ["Pernos y espárragos", "Tuercas y arandelas", "Componentes a medida"],
+    "capabilitiesLabel": "Capacidades",
+    "capabilityLinks": ["Materiales", "Suministro a medida", "Calidad", "Capacidad de la empresa"],
+    "contactLabel": "Contacto",
+    "requestQuote": "Solicitar cotización",
+    "emailSales": "Escribir a ventas",
+    "copyright": "© 2026 AlloyForge Fasteners",
+    "tagline": "Suministro industrial orientado a la exportación"
+  },
+  "quotePage": {
+    "eyebrow": "REQUISITOS ESTÁNDAR O A MEDIDA",
+    "title": "Solicitar cotización",
+    "copy": "Envíe un requisito de fijación estándar o suba planos para la revisión de un componente a medida.",
+    "responseAria": "Compromiso de respuesta",
+    "responseLabel": "Objetivo de respuesta",
+    "responseValue": "En un día hábil",
+    "aside": {
+      "eyebrow": "Qué incluir",
+      "title": "Detalle suficiente para una cotización útil.",
+      "copy": "Material, medida, cantidad y destino son lo esencial. Añada la norma, los ensayos y el plano si los tiene.",
+      "steps": [
+        { "name": "Datos de contacto", "copy": "Para que la respuesta técnica llegue a la persona adecuada." },
+        { "name": "Requisitos del producto", "copy": "Material, medida, cantidad, ensayos y destino." },
+        { "name": "Plano y confidencialidad", "copy": "Archivos opcionales con una solicitud clara de confidencialidad." }
+      ],
+      "preferEmail": "¿Prefiere el correo?",
+      "email": "sales@alloyforge-fasteners.com"
+    },
+    "form": {
+      "legend1": "Datos de contacto",
+      "legend2": "Requisitos del producto",
+      "legend3": "Plano y confidencialidad",
+      "name": "Nombre",
+      "email": "Correo corporativo",
+      "company": "Empresa",
+      "country": "País / Región",
+      "productType": "Tipo de producto",
+      "productPlaceholder": "Seleccione un producto",
+      "productOther": "Otro tipo de producto",
+      "materialGrade": "Grado del material",
+      "materialPlaceholder": "p. ej. Inconel 718",
+      "size": "Medida / N.º de plano",
+      "sizePlaceholder": "M16 × 80 o DRW-1042",
+      "quantity": "Cantidad",
+      "quantityUnitAria": "Unidad de cantidad",
+      "units": [
+        { "value": "pcs", "label": "uds" },
+        { "value": "sets", "label": "juegos" },
+        { "value": "kg", "label": "kg" }
+      ],
+      "standard": "Norma requerida",
+      "standardPlaceholder": "ASTM, ASME, DIN, ISO o especificación del proyecto",
+      "destination": "Destino",
+      "destinationPlaceholder": "Ciudad, país",
+      "testingLabel": "Ensayos requeridos",
+      "testingOptions": [
+        { "value": "MTC / EN 10204 3.1", "label": "MTC / EN 10204 3.1" },
+        { "value": "PMI", "label": "PMI" },
+        { "value": "Hardness", "label": "Dureza" },
+        { "value": "Tensile", "label": "Tracción" },
+        { "value": "Ultrasonic", "label": "Ultrasonidos" },
+        { "value": "Third-party inspection", "label": "Inspección de tercera parte" }
+      ],
+      "testingOtherToggle": "Otro",
+      "testingOther": "Otros ensayos",
+      "notes": "Notas adicionales",
+      "notesPlaceholder": "Temperatura de servicio, entorno corrosivo, tolerancias, plazo de entrega o requisito de embalaje",
+      "products": [
+        { "value": "Bolts", "label": "Pernos" },
+        { "value": "Stud Bolts", "label": "Espárragos" },
+        { "value": "Nuts", "label": "Tuercas" },
+        { "value": "Washers", "label": "Arandelas" },
+        { "value": "Custom Components", "label": "Componentes a medida" },
+        { "value": "Other", "label": "Otro" }
+      ],
+      "upload": {
+        "title": "Suba planos o especificaciones",
+        "dragHere": "Arrastre los archivos aquí o",
+        "browse": "explore sus archivos",
+        "formats": "Formatos aceptados: PDF, DWG, DXF, STEP, JPG, PNG. Máximo 10 MB por archivo.",
+        "filesAria": "Archivos seleccionados",
+        "ready": "Listo",
+        "remove": "Eliminar",
+        "unsupported": "formato no compatible.",
+        "tooLarge": "el archivo supera los 10 MB."
+      },
+      "confidentiality": {
+        "title": "Traten esta consulta y todos los planos subidos de forma confidencial.",
+        "copy": "Su solicitud de confidencialidad se incluirá con la cotización."
+      },
+      "submit": "Enviar solicitud",
+      "submitting": "Enviando...",
+      "errors": {
+        "required": "Complete este campo obligatorio.",
+        "email": "Introduzca un correo corporativo válido.",
+        "quantity": "La cantidad debe ser al menos 1.",
+        "generic": "Revise este valor e inténtelo de nuevo.",
+        "form": "Corrija los campos marcados antes de enviar."
+      }
+    },
+    "success": {
+      "eyebrow": "Solicitud enviada",
+      "title": "Hemos recibido su solicitud.",
+      "copy": "Nuestro equipo responderá en un día hábil.",
+      "inquiryLabel": "Número de consulta",
+      "emailLabel": "Respuesta a",
+      "home": "Volver al inicio",
+      "another": "Iniciar otra solicitud"
+    }
+  }
+}

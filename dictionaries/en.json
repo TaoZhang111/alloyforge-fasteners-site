@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "home": {
+      "title": "AlloyForge Fasteners | High-Temperature Alloy Fasteners",
+      "description": "High-temperature alloy bolts, studs, nuts, washers and custom components for heat, pressure and corrosion-critical industrial applications."
+    },
+    "quote": {
+      "title": "Request a Quote | AlloyForge Fasteners",
+      "description": "Request a quotation for standard or custom high-temperature alloy bolts, studs, nuts, washers and components."
+    }
+  },
+  "header": {
+    "brand": "AlloyForge",
+    "brandTag": "High-Temp Fasteners",
+    "homeAria": "AlloyForge Fasteners home",
+    "navAria": "Primary navigation",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "nav": {
+      "products": "Products",
+      "materials": "Materials",
+      "capabilities": "Capabilities",
+      "quality": "Quality",
+      "cta": "Request a Quote"
+    }
+  },
+  "hero": {
+    "eyebrow": "HIGH-TEMPERATURE ALLOY FASTENERS",
+    "title": "Alloy Fasteners for Heat, Pressure & Corrosion.",
+    "copy": "Bolts, studs, nuts, washers and custom components in nickel-based and high-performance alloys.",
+    "requestQuote": "Request a Quote",
+    "explore": "Explore Products",
+    "scroll": "Scroll",
+    "scrollAria": "Scroll to product range"
+  },
+  "products": {
+    "eyebrow": "Product range",
+    "titleBefore": "Five core",
+    "titleAfter": "fastener categories, supplied to specification.",
+    "sendSpecs": "Send specifications",
+    "photoAlt": "Alloy bolts, studs, nuts and washers arranged for inspection",
+    "listAria": "Product categories",
+    "cards": [
+      {
+        "value": "Bolts",
+        "type": "Hex · Socket · Special head",
+        "name": "Bolts",
+        "copy": "Hex, socket and special-head bolts for high-temperature assemblies.",
+        "link": "Quote bolts"
+      },
+      {
+        "value": "Stud Bolts",
+        "type": "Full thread · Double end",
+        "name": "Stud Bolts",
+        "copy": "Full-thread, double-end and application-specific stud configurations.",
+        "link": "Quote stud bolts"
+      },
+      {
+        "value": "Nuts",
+        "type": "Hex · Heavy hex · Special",
+        "name": "Nuts",
+        "copy": "Hex, heavy hex and special nuts matched to alloy and thread requirements.",
+        "link": "Quote nuts"
+      },
+      {
+        "value": "Washers",
+        "type": "Flat · Custom profile",
+        "name": "Washers",
+        "copy": "Flat and custom-profile washers for load distribution and corrosion resistance.",
+        "link": "Quote washers"
+      },
+      {
+        "value": "Custom Components",
+        "type": "Drawing-based · Non-standard",
+        "name": "Custom Components",
+        "copy": "Non-standard geometry, special threads and low-volume trial requirements based on your drawing.",
+        "link": "Upload a drawing"
+      }
+    ]
+  },
+  "materials": {
+    "eyebrow": "Material capability",
+    "title": "Alloys selected for severe service conditions.",
+    "note": "Final material selection, certification and test scope are confirmed against each purchase specification.",
+    "prevAria": "Previous material",
+    "nextAria": "Next material",
+    "serviceLabel": "Relevant service",
+    "reviewLabel": "Supply review",
+    "slides": [
+      {
+        "family": "Ni-Cr-Mo alloy",
+        "name": "Inconel 625",
+        "copy": "Strong resistance to seawater, chloride environments and elevated-temperature oxidation.",
+        "service": "Marine · Chemical · Offshore",
+        "review": "Fastener form, standard and certification",
+        "image": "/assets/hero-fasteners.png",
+        "imageAlt": "Nickel alloy fasteners on a machined metal surface"
+      },
+      {
+        "family": "Ni-Cr-Fe alloy",
+        "name": "Inconel 718",
+        "copy": "High strength and creep resistance for loaded assemblies at elevated temperatures.",
+        "service": "Power · Energy · Turbomachinery",
+        "review": "Strength condition, thread and test scope",
+        "image": "/assets/product-fasteners.png",
+        "imageAlt": "Assorted alloy bolts, studs, nuts and washers"
+      },
+      {
+        "family": "Ni-Mo-Cr alloy",
+        "name": "Hastelloy C276",
+        "copy": "Broad corrosion resistance for aggressive chemical processing environments.",
+        "service": "Chemical · Process Equipment",
+        "review": "Media exposure, drawing and inspection",
+        "image": "/assets/quality-inspection.png",
+        "imageAlt": "Alloy fastener inspection in a quality laboratory"
+      },
+      {
+        "family": "Order-specific grades",
+        "name": "Other Performance Alloys",
+        "copy": "Monel, titanium, duplex and additional grades reviewed against the operating requirement.",
+        "service": "Marine · Chemical · Weight-critical",
+        "review": "Specified per drawing or material standard",
+        "image": "/assets/hero-fasteners.png",
+        "imageAlt": "Special alloy fasteners prepared for industrial supply"
+      }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "Custom and supply capability",
+    "title": "Quote against the drawing, standard, thread and quantity you actually need.",
+    "copy": "Manufacturing and secondary processing can be coordinated through qualified supply partners. The proposed route, inspection scope and documentation are confirmed with the quotation.",
+    "cta": "Upload your requirement",
+    "listAria": "Available supply processes",
+    "items": [
+      {
+        "stage": "Before quotation",
+        "name": "Technical drawing review",
+        "copy": "Dimensions, tolerances, thread form, material condition and order quantity."
+      },
+      {
+        "stage": "Primary processing",
+        "name": "Machining and thread production",
+        "copy": "Turning, thread rolling or cutting selected to suit the grade and specification."
+      },
+      {
+        "stage": "Secondary processing",
+        "name": "Heat and surface treatment",
+        "copy": "Coordinated when required by the material, service environment or purchase order."
+      },
+      {
+        "stage": "Order assurance",
+        "name": "Inspection and documentation",
+        "copy": "Traceability, dimensional records and test reports aligned with the quoted scope."
+      },
+      {
+        "stage": "Export delivery",
+        "name": "Packing and shipment records",
+        "copy": "Labels, cartons, pallets and export documents prepared for the destination."
+      }
+    ]
+  },
+  "quality": {
+    "eyebrow": "Quality and traceability",
+    "title": "Documentation aligned with the order requirement.",
+    "copy": "Inspection and certification are quoted according to the applicable standard, drawing and purchaser requirement. Available scope can include:",
+    "photoAlt": "Dimensional inspection of an alloy bolt in a quality laboratory",
+    "checks": [
+      "MTC / EN 10204 3.1 documentation",
+      "Heat and lot number traceability",
+      "PMI, hardness and tensile testing",
+      "Ultrasonic and third-party inspection"
+    ],
+    "note": "Testing and reports are provided when specified and confirmed with the order."
+  },
+  "industries": {
+    "eyebrow": "Application fit",
+    "title": "Relevant to heat, pressure and corrosion-critical equipment.",
+    "note": "Application suitability is reviewed against the buyer's engineering specification.",
+    "discuss": "Discuss the application",
+    "panels": [
+      {
+        "tag": "Heat and pressure",
+        "name": "Energy & Petrochemical",
+        "copy": "Fasteners for valves, pumps, flanges and process systems exposed to loaded service.",
+        "image": "/assets/hero-fasteners.png"
+      },
+      {
+        "tag": "Aggressive media",
+        "name": "Chemical Processing",
+        "copy": "Nickel alloy requirements for chemical, chloride and corrosion-critical environments.",
+        "image": "/assets/quality-inspection.png"
+      },
+      {
+        "tag": "Seawater exposure",
+        "name": "Marine & Offshore",
+        "copy": "Material options for seawater-adjacent equipment and offshore maintenance programs.",
+        "image": "/assets/product-fasteners.png"
+      },
+      {
+        "tag": "Elevated temperature",
+        "name": "Power Generation",
+        "copy": "Bolting for thermal equipment, plant maintenance and engineered high-temperature assemblies.",
+        "image": "/assets/hero-fasteners.png"
+      }
+    ]
+  },
+  "company": {
+    "eyebrow": "Company capability",
+    "title": "A clear route from technical requirement to export-ready fasteners.",
+    "copy": "AlloyForge supports international buyers with drawing-based review, alloy sourcing, coordinated processing, inspection and export documentation for demanding fastener requirements.",
+    "photoAlt": "High-temperature alloy fasteners prepared for export supply",
+    "bullets": [
+      "Standard parts and drawing-based custom components",
+      "Nickel alloy and high-performance material sourcing",
+      "Coordinated processing, inspection and export documentation"
+    ],
+    "processEyebrow": "From RFQ to shipment",
+    "processTitle": "A predictable supply workflow.",
+    "processCopy": "Each stage is confirmed against the drawing, purchase specification and required documentation.",
+    "steps": [
+      { "name": "Upload Drawing", "copy": "Send the specification, drawing, material and required quantity." },
+      { "name": "Technical Review", "copy": "Confirm geometry, alloy condition, testing scope and manufacturing feasibility." },
+      { "name": "Quotation", "copy": "Receive the proposed supply scope, pricing, lead time and commercial terms." },
+      { "name": "Production & QC", "copy": "Coordinate manufacturing, dimensional inspection, testing and traceability records." },
+      { "name": "Shipment", "copy": "Prepare protected export packing, labels and destination-ready delivery documents." }
+    ]
+  },
+  "rfqCta": {
+    "eyebrow": "Ready for technical review",
+    "title": "Send the requirement. Expect a response within one business day.",
+    "copy": "Upload a drawing or enter the standard, material, size, quantity and required testing.",
+    "button": "Request a Quote",
+    "email": "sales@alloyforge-fasteners.com"
+  },
+  "footer": {
+    "brand": "AlloyForge Fasteners",
+    "copy": "High-temperature alloy fasteners for international industrial procurement.",
+    "productsLabel": "Products",
+    "productLinks": ["Bolts & Studs", "Nuts & Washers", "Custom Components"],
+    "capabilitiesLabel": "Capabilities",
+    "capabilityLinks": ["Materials", "Custom Supply", "Quality", "Company Capability"],
+    "contactLabel": "Contact",
+    "requestQuote": "Request a Quote",
+    "emailSales": "Email Sales",
+    "copyright": "© 2026 AlloyForge Fasteners",
+    "tagline": "Export-focused industrial supply"
+  },
+  "quotePage": {
+    "eyebrow": "STANDARD OR CUSTOM REQUIREMENTS",
+    "title": "Request a Quote",
+    "copy": "Submit a standard fastener requirement or upload drawings for a custom component review.",
+    "responseAria": "Response commitment",
+    "responseLabel": "Response target",
+    "responseValue": "Within one business day",
+    "aside": {
+      "eyebrow": "What to include",
+      "title": "Enough detail for a useful quotation.",
+      "copy": "Material, size, quantity and destination are the essentials. Add the standard, testing and drawing where available.",
+      "steps": [
+        { "name": "Contact details", "copy": "So the technical response reaches the right person." },
+        { "name": "Product requirements", "copy": "Material, size, quantity, testing and destination." },
+        { "name": "Drawing & confidentiality", "copy": "Optional files with a clear confidentiality request." }
+      ],
+      "preferEmail": "Prefer email?",
+      "email": "sales@alloyforge-fasteners.com"
+    },
+    "form": {
+      "legend1": "Contact Information",
+      "legend2": "Product Requirements",
+      "legend3": "Drawing & Confidentiality",
+      "name": "Name",
+      "email": "Business Email",
+      "company": "Company",
+      "country": "Country / Region",
+      "productType": "Product Type",
+      "productPlaceholder": "Select product",
+      "productOther": "Other Product Type",
+      "materialGrade": "Material Grade",
+      "materialPlaceholder": "e.g. Inconel 718",
+      "size": "Size / Drawing Number",
+      "sizePlaceholder": "M16 × 80 or DRW-1042",
+      "quantity": "Quantity",
+      "quantityUnitAria": "Quantity unit",
+      "units": [
+        { "value": "pcs", "label": "pcs" },
+        { "value": "sets", "label": "sets" },
+        { "value": "kg", "label": "kg" }
+      ],
+      "standard": "Required Standard",
+      "standardPlaceholder": "ASTM, ASME, DIN, ISO or project spec",
+      "destination": "Destination",
+      "destinationPlaceholder": "City, country",
+      "testingLabel": "Required Testing",
+      "testingOptions": [
+        { "value": "MTC / EN 10204 3.1", "label": "MTC / EN 10204 3.1" },
+        { "value": "PMI", "label": "PMI" },
+        { "value": "Hardness", "label": "Hardness" },
+        { "value": "Tensile", "label": "Tensile" },
+        { "value": "Ultrasonic", "label": "Ultrasonic" },
+        { "value": "Third-party inspection", "label": "Third-party inspection" }
+      ],
+      "testingOtherToggle": "Other",
+      "testingOther": "Other Testing",
+      "notes": "Additional Notes",
+      "notesPlaceholder": "Operating temperature, corrosion environment, tolerance, delivery target or packing requirement",
+      "products": [
+        { "value": "Bolts", "label": "Bolts" },
+        { "value": "Stud Bolts", "label": "Stud Bolts" },
+        { "value": "Nuts", "label": "Nuts" },
+        { "value": "Washers", "label": "Washers" },
+        { "value": "Custom Components", "label": "Custom Components" },
+        { "value": "Other", "label": "Other" }
+      ],
+      "upload": {
+        "title": "Upload drawings or specifications",
+        "dragHere": "Drag files here or",
+        "browse": "browse files",
+        "formats": "Accepted formats: PDF, DWG, DXF, STEP, JPG, PNG. Maximum 10 MB per file.",
+        "filesAria": "Selected files",
+        "ready": "Ready",
+        "remove": "Remove",
+        "unsupported": "unsupported format.",
+        "tooLarge": "file exceeds 10 MB."
+      },
+      "confidentiality": {
+        "title": "Please keep this inquiry and all uploaded drawings confidential.",
+        "copy": "Your confidentiality request will be included with the RFQ."
+      },
+      "submit": "Submit RFQ",
+      "submitting": "Submitting...",
+      "errors": {
+        "required": "Please complete this required field.",
+        "email": "Enter a valid business email address.",
+        "quantity": "Quantity must be at least 1.",
+        "generic": "Check this value and try again.",
+        "form": "Please correct the highlighted fields before submitting."
+      }
+    },
+    "success": {
+      "eyebrow": "RFQ submitted",
+      "title": "Your request has been received.",
+      "copy": "Our team will respond within one business day.",
+      "inquiryLabel": "Inquiry number",
+      "emailLabel": "Reply sent to",
+      "home": "Return to Homepage",
+      "another": "Start Another RFQ"
+    }
+  }
+}

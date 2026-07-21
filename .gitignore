@@ -3,3 +3,8 @@ assets/images/fastener-hero-poster.png
 tmp/
 render-frames/
 *.blend1
+
+# Next.js
+node_modules/
+.next/
+out/
