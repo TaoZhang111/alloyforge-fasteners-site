@@ -1,5 +1,7 @@
 screenshot-*.png
 assets/images/fastener-hero-poster.png
+assets/products/*.png
+assets/certificates/*.png
 tmp/
 render-frames/
 *.blend1

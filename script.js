@@ -76,7 +76,7 @@ function createInquiryNumber() {
     String(now.getDate()).padStart(2, "0")
   ].join("");
   const random = String(Math.floor(1000 + Math.random() * 9000));
-  return `AF-${date}-${random}`;
+  return `BYB-${date}-${random}`;
 }
 
 function initRfqForm() {
@@ -428,27 +428,60 @@ function initTasteMotion() {
         .to(media, { scale: 0.96, opacity: 0.22, duration: 0.54, ease: "none" });
     });
 
-    const stackCards = window.gsap.utils.toArray("[data-stack-card]");
-    const stackMedia = window.gsap.matchMedia();
+    const processJourney = document.querySelector("[data-process-journey]");
+    if (!processJourney) {
+      return;
+    }
 
-    stackMedia.add("(min-width: 761px)", () => {
-      stackCards.forEach((card) => {
-        window.gsap.fromTo(
-          card,
-          { opacity: 0.36, y: 110, scale: 0.95 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 94%",
-              end: "top 56%",
-              scrub: 0.9
-            }
+    const visualColumn = processJourney.querySelector("[data-process-visual-column]");
+    const processSteps = window.gsap.utils.toArray("[data-process-step]", processJourney);
+    const processImages = window.gsap.utils.toArray("[data-process-image]", processJourney);
+    const activateProcessStep = (index) => {
+      processImages.forEach((image, imageIndex) => {
+        const isActive = imageIndex === index;
+        image.classList.toggle("is-active", isActive);
+        image.setAttribute("aria-hidden", String(!isActive));
+      });
+      processSteps.forEach((step, stepIndex) => step.classList.toggle("is-active", stepIndex === index));
+    };
+
+    activateProcessStep(0);
+
+    processSteps.forEach((step, index) => {
+      window.ScrollTrigger.create({
+        trigger: step,
+        start: "top 58%",
+        end: "bottom 42%",
+        onEnter: () => activateProcessStep(index),
+        onEnterBack: () => activateProcessStep(index)
+      });
+
+      window.gsap.fromTo(
+        step,
+        { opacity: 0.42, y: 72 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 92%",
+            end: "top 66%",
+            scrub: 0.8
           }
-        );
+        }
+      );
+    });
+
+    const processMedia = window.gsap.matchMedia();
+    processMedia.add("(min-width: 1061px)", () => {
+      window.ScrollTrigger.create({
+        trigger: processJourney,
+        start: "top top+=104",
+        end: "bottom bottom-=88",
+        pin: visualColumn,
+        pinSpacing: false,
+        anticipatePin: 1
       });
     });
   });
