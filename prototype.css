@@ -952,3 +952,25 @@ body.prototype-page {
   .process-image,
   .image-product-card img { transition: none; }
 }
+
+.not-found-page {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  color: var(--bybolt-ink);
+  background: var(--bybolt-paper-strong);
+}
+
+.not-found-page h1 {
+  max-width: 900px;
+  margin: 18px 0 28px;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 500;
+  line-height: 0.98;
+}
+
+.not-found-page p:not(.eyebrow) {
+  max-width: 680px;
+  color: var(--bybolt-muted);
+  font-size: 18px;
+}

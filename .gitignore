@@ -4,4 +4,5 @@ assets/products/*.png
 assets/certificates/*.png
 tmp/
 render-frames/
+dist/
 *.blend1
