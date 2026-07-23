@@ -7,14 +7,22 @@ param(
 $siteRoot = Split-Path -Parent $PSScriptRoot
 $origin = $BaseUrl.TrimEnd('/')
 $lastModified = Get-Date -Format 'yyyy-MM-dd'
-$paths = @(
+$corePaths = @(
   '/',
   '/products/',
-  '/products/nickel-alloy-hex-bolts/',
   '/materials/',
   '/materials/inconel-625/',
   '/quote.html'
 )
+
+$productPaths = Get-ChildItem (Join-Path $siteRoot 'products') -Recurse -Filter 'index.html' |
+  ForEach-Object {
+    $relative = $_.DirectoryName.Substring($siteRoot.Length).Replace('\\', '/')
+    "$relative/"
+  } |
+  Where-Object { $_ -ne '/products/nickel-alloy-hex-bolts/' }
+
+$paths = @($corePaths + $productPaths | Sort-Object -Unique)
 
 $entries = $paths | ForEach-Object {
   "  <url><loc>$origin$_</loc><lastmod>$lastModified</lastmod></url>"

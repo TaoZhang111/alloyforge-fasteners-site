@@ -254,9 +254,14 @@ function initRfqForm() {
     const requestedProduct = new URLSearchParams(window.location.search).get("product");
     if (requestedProduct && [...productSelect.options].some((option) => option.value === requestedProduct)) {
       productSelect.value = requestedProduct;
+    } else if (requestedProduct && productOtherInput) {
+      productSelect.value = "Other";
     }
     productSelect.addEventListener("change", updateProductOther);
     updateProductOther();
+    if (requestedProduct && productSelect.value === "Other" && productOtherInput) {
+      productOtherInput.value = requestedProduct;
+    }
   }
 
   if (testingOtherToggle) {
@@ -403,6 +408,26 @@ function initIndustryAccordion() {
   });
 }
 
+function initProductCarousels() {
+  document.querySelectorAll("[data-product-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector("[data-product-track]");
+    const previous = carousel.querySelector("[data-product-prev]");
+    const next = carousel.querySelector("[data-product-next]");
+    if (!track || !previous || !next) {
+      return;
+    }
+
+    function move(direction) {
+      const card = track.querySelector(".related-product-card");
+      const distance = (card?.getBoundingClientRect().width || track.clientWidth * 0.82) + 12;
+      track.scrollBy({ left: distance * direction, behavior: reduceMotionQuery.matches ? "auto" : "smooth" });
+    }
+
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+  });
+}
+
 let tasteMotionContext = null;
 
 function initTasteMotion() {
@@ -428,12 +453,74 @@ function initTasteMotion() {
         .to(media, { scale: 0.96, opacity: 0.22, duration: 0.54, ease: "none" });
     });
 
+    window.gsap.utils.toArray("[data-scrub-copy]").forEach((copy) => {
+      if (!copy.querySelector(".scrub-word")) {
+        const words = copy.textContent.trim().split(/\s+/);
+        copy.replaceChildren();
+        words.forEach((word, index) => {
+          const span = document.createElement("span");
+          span.className = "scrub-word";
+          span.textContent = word;
+          copy.append(span);
+          if (index < words.length - 1) {
+            copy.append(document.createTextNode(" "));
+          }
+        });
+      }
+
+      window.gsap.fromTo(
+        copy.querySelectorAll(".scrub-word"),
+        { opacity: 0.65 },
+        {
+          opacity: 1,
+          stagger: 0.08,
+          ease: "none",
+          scrollTrigger: {
+            trigger: copy,
+            start: "top 84%",
+            end: "bottom 48%",
+            scrub: 0.7
+          }
+        }
+      );
+    });
+
+    const productMotion = window.gsap.matchMedia();
+    productMotion.add("(min-width: 821px)", () => {
+      document.querySelectorAll("[data-spec-pin]").forEach((panel) => {
+        const section = panel.closest(".technical-specs");
+        if (!section) {
+          return;
+        }
+        window.ScrollTrigger.create({
+          trigger: section,
+          start: "top top+=104",
+          end: "bottom bottom-=100",
+          pin: panel,
+          pinSpacing: false,
+          anticipatePin: 1
+        });
+      });
+
+      document.querySelectorAll(".technical-hero-media, .category-hero figure").forEach((media) => {
+        window.gsap.fromTo(
+          media.querySelector("img"),
+          { scale: 1.04, yPercent: -2 },
+          {
+            scale: 1.12,
+            yPercent: 4,
+            ease: "none",
+            scrollTrigger: { trigger: media, start: "top bottom", end: "bottom top", scrub: 1 }
+          }
+        );
+      });
+    });
+
     const processJourney = document.querySelector("[data-process-journey]");
     if (!processJourney) {
       return;
     }
 
-    const visualColumn = processJourney.querySelector("[data-process-visual-column]");
     const processSteps = window.gsap.utils.toArray("[data-process-step]", processJourney);
     const processImages = window.gsap.utils.toArray("[data-process-image]", processJourney);
     const activateProcessStep = (index) => {
@@ -456,34 +543,8 @@ function initTasteMotion() {
         onEnterBack: () => activateProcessStep(index)
       });
 
-      window.gsap.fromTo(
-        step,
-        { opacity: 0.42, y: 72 },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: step,
-            start: "top 92%",
-            end: "top 66%",
-            scrub: 0.8
-          }
-        }
-      );
     });
 
-    const processMedia = window.gsap.matchMedia();
-    processMedia.add("(min-width: 1061px)", () => {
-      window.ScrollTrigger.create({
-        trigger: processJourney,
-        start: "top top+=104",
-        end: "bottom bottom-=88",
-        pin: visualColumn,
-        pinSpacing: false,
-        anticipatePin: 1
-      });
-    });
   });
 }
 
@@ -499,6 +560,7 @@ initRevealAnimations();
 initRfqForm();
 initMaterialCarousel();
 initIndustryAccordion();
+initProductCarousels();
 initTasteMotion();
 
 function createShader(gl, type, source) {

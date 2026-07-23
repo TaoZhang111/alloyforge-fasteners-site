@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "generate:products": "node tools/generate-product-pages.mjs",
     "build": "node tools/build-static.mjs"
   },
   "devDependencies": {

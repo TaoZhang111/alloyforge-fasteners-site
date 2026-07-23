@@ -1,6 +1,7 @@
 import { cp, mkdir, rm, stat } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { generateProductPages } from "./generate-product-pages.mjs";
 
 const projectRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const outputDirectory = join(projectRoot, "dist");
@@ -16,7 +17,7 @@ const publicFiles = [
   "sitemap.xml"
 ];
 
-const publicDirectories = ["assets", "products", "materials"];
+const publicDirectories = ["assets", "materials"];
 
 async function exists(path) {
   try {
@@ -43,5 +44,7 @@ for (const file of publicFiles) {
 for (const directory of publicDirectories) {
   await cp(join(projectRoot, directory), join(outputDirectory, directory), { recursive: true });
 }
+
+await generateProductPages(outputDirectory);
 
 console.log(`Static site built at ${outputDirectory}`);
